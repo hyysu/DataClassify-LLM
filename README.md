@@ -1,4 +1,4 @@
-<img width="1800" height="1120" alt="demo-results-table" src="https://github.com/user-attachments/assets/7daae3f9-3655-4ac2-8c91-e2ef662a5d30" />﻿# 数据分类分级工具
+﻿# 数据分类分级工具
 
 本项目用于构建字段级数据分类分级原型：
 
