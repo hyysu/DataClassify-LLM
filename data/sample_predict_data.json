@@ -1,0 +1,47 @@
+[
+  {
+    "table_name": "user_auth",
+    "table_comment": "用户实名认证表",
+    "column_name": "id_card",
+    "column_comment": "身份证号",
+    "data_type": "varchar",
+    "sample_values": ["110101********1234", "320102********5678"],
+    "nullable": false,
+    "is_primary_key": false,
+    "is_unique": true
+  },
+  {
+    "table_name": "contact_book",
+    "table_comment": "联系人表",
+    "column_name": "userPhoneNumber",
+    "column_comment": "用户手机号",
+    "data_type": "varchar",
+    "sample_values": ["138****0000", "186****1111"],
+    "nullable": false,
+    "is_primary_key": false,
+    "is_unique": true
+  },
+  {
+    "table_name": "access_log",
+    "table_comment": "系统访问日志",
+    "column_name": "remote_addr",
+    "column_comment": "访问来源IP",
+    "data_type": "varchar",
+    "sample_values": ["192.168.1.1", "203.0.113.1"],
+    "nullable": false,
+    "is_primary_key": false,
+    "is_unique": false
+  },
+  {
+    "table_name": "finance_report",
+    "table_comment": "财务报表",
+    "column_name": "revenue_amount",
+    "column_comment": "收入金额",
+    "data_type": "decimal",
+    "sample_values": ["100000.00", "500000.00"],
+    "nullable": false,
+    "is_primary_key": false,
+    "is_unique": false
+  }
+]
+

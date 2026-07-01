@@ -1,0 +1,9 @@
+table_name,column_name,column_comment,data_type,sample_value,business_context
+user_profile,phone_number,用户手机号,varchar,138****1111,用户管理
+user_profile,id_card_no,身份证号码,varchar,110101********9876,实名核验
+orders,total_amount,订单总金额,decimal,299.90,电商订单
+login_log,remote_ip,登录来源IP,varchar,203.0.113.8,登录日志
+api_client,client_secret,第三方应用密钥,varchar,sec_***,开放平台
+crm,customer_list,重点客户名单,text,客户A;客户B,销售管理
+location,gps_location,用户GPS定位,varchar,"lat=39.9,lng=116.3",位置服务
+notice,public_title,公开公告标题,varchar,停机维护公告,门户网站

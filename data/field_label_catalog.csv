@@ -1,0 +1,25 @@
+label_id,category,description,default_level,is_personal_info,is_sensitive_personal_info,important_data_hint,controls,keywords
+public_info,公开信息,已经依法公开或业务上可公开的数据,L1,false,false,false,完整性校验|来源标识,公告|公开|public|notice|news|open
+internal_operational_data,内部运营数据,企业内部一般运营管理数据,L2,false,false,false,访问控制|内部流转审批|日志审计,部门|岗位|流程|状态|配置|internal|status|dept|config
+name,姓名,自然人姓名或可识别个人身份的名称,L3,true,false,false,访问控制|脱敏展示|日志审计,姓名|名字|用户姓名|客户姓名|name|realname|user_name
+mobile_phone,手机号,移动电话号码等个人联系方式,L3,true,false,false,访问控制|脱敏展示|传输加密|日志审计,手机|手机号|联系电话|phone|mobile|tel
+email,电子邮箱,电子邮箱地址等个人联系方式,L3,true,false,false,访问控制|脱敏展示|日志审计,邮箱|邮件|email|mail
+id_number,身份证件号,身份证号、护照号等证件标识,L4,true,true,false,严格访问控制|加密存储|脱敏展示|操作审计|最小必要,身份证|证件号|护照|id_card|identity|passport
+bank_card,银行卡号,银行卡号、支付卡号等金融账号,L4,true,true,false,严格访问控制|加密存储|脱敏展示|操作审计|最小必要,银行卡|卡号|bank_card|card_no|debit|credit
+password,密码口令,密码、口令、PIN等认证秘密,L4,true,true,false,禁止明文存储|哈希加盐|严格访问控制|操作审计,密码|口令|password|passwd|pwd|pin
+auth_token,密钥令牌,API Key、Token、Session、Secret等凭证,L4,false,false,false,密钥管理|加密存储|定期轮换|最小权限|操作审计,token|secret|api_key|apikey|session|access_key|refresh
+address,联系地址,住址、收货地址、通讯地址等,L3,true,false,false,访问控制|脱敏展示|传输加密|日志审计,地址|住址|收货地址|通讯地址|家庭住址|联系地址|mailing_address|home_addr|address|addr
+precise_location,精准定位,精确地理位置、经纬度、轨迹点,L4,true,true,false,严格访问控制|最小必要|脱敏降精度|操作审计,经度|纬度|定位|位置|轨迹|longitude|latitude|gps|location
+health_info,健康生理信息,病历、诊断、健康指标等个人敏感信息,L4,true,true,false,严格访问控制|加密存储|授权同意|操作审计,健康|病历|诊断|血压|心率|health|medical|diagnosis
+biometric_info,生物识别信息,人脸、指纹、声纹等生物识别数据,L4,true,true,false,严格访问控制|加密存储|授权同意|模板保护|操作审计,人脸|指纹|虹膜|声纹|biometric|face|fingerprint|voiceprint
+order_id,订单编号,订单、工单、流水等业务编号,L2,false,false,false,访问控制|日志审计,订单号|工单号|流水号|运单号|退款单号|order_id|order_no|ticket|serial|waybill_no|waybill|refund_id
+transaction_amount,交易金额,订单金额、支付金额、余额等交易数据,L3,false,false,false,访问控制|传输加密|日志审计,金额|价格|余额|费用|amount|price|balance|fee
+payment_account,支付账户,支付账号、第三方支付账户等,L4,true,true,false,严格访问控制|加密存储|脱敏展示|操作审计,支付账号|付款账号|收款账号|payment_account|pay_account
+ip_address,IP地址,IP地址、登录IP、访问IP等网络标识,L2,true,false,false,访问控制|日志审计|必要时脱敏,IP|登录IP|访问IP|ip|client_ip|remote_addr
+device_id,设备标识,设备ID、IMEI、IMSI、MAC等设备标识,L3,true,false,false,访问控制|脱敏展示|日志审计,设备|设备ID|MAC地址|imei|imsi|mac|mac_address|device_id|android_id|idfa
+behavior_log,行为日志,访问、点击、浏览、搜索等行为记录,L3,true,false,false,访问控制|留存期限控制|日志审计,访问记录|点击|浏览|搜索|行为|behavior|click|visit|browse|search
+enterprise_customer,客户商业信息,企业客户名单、联系人、客户分层等,L3,false,false,true,访问控制|合同约束|日志审计|导出审批,客户|名单|customer|client|crm|联系人
+contract_info,合同信息,合同编号、合同金额、合同状态等,L3,false,false,true,访问控制|导出审批|日志审计,合同|合同编号|合同金额|合同状态|协议|采购协议|contract|agreement|contract_no|contract_amount
+financial_report,财务经营数据,财报、利润、成本、预算等经营敏感数据,L4,false,false,true,严格访问控制|导出审批|加密存储|操作审计,财务|利润|成本|预算|收入|finance|profit|cost|budget|revenue
+trade_secret,商业秘密,技术秘密、经营秘密、未公开核心资料,L4,false,false,true,严格访问控制|水印|加密存储|导出审批|操作审计,商业秘密|技术秘密|源代码|算法|配方|secret|source_code|algorithm
+unknown,未知字段,无法可靠判断类别的数据字段,L2,false,false,false,人工复核|补充字段注释|补充样例,unknown|other|misc
