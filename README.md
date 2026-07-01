@@ -1,4 +1,4 @@
-﻿# 数据分类分级工具
+<img width="1800" height="1120" alt="demo-results-table" src="https://github.com/user-attachments/assets/7daae3f9-3655-4ac2-8c91-e2ef662a5d30" />﻿# 数据分类分级工具
 
 本项目用于构建字段级数据分类分级原型：
 
@@ -120,3 +120,7 @@ cd D:\classification\data-classification-tool
 - `scripts/`：环境验证、训练、推理等脚本
 - `environment.yml`：conda 环境声明
 - `.env.example`：大模型 API 配置模板
+
+<img width="1800" height="1120" alt="demo-results-table" src="https://github.com/user-attachments/assets/38e75cbb-923d-4825-8417-95129aa7b461" />
+<img width="1500" height="840" alt="demo-summary" src="https://github.com/user-attachments/assets/75306dbe-107e-40a4-b1ad-80fa2e8a1a03" />
+
