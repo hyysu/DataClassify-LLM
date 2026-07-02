@@ -57,7 +57,7 @@ def _write_excel_report(frame: pd.DataFrame, output_path: Path) -> None:
         frame.to_excel(writer, index=False, sheet_name="classification_report")
 
 
-def _analyze(input_csv: Path, retrain: bool) -> tuple[str, pd.DataFrame, str, str, str]:
+def _analyze(input_csv: Path, retrain: bool, grader_name: str) -> tuple[str, pd.DataFrame, str, str, str]:
     if not input_csv.exists():
         raise gr.Error(f"输入文件不存在：{input_csv}")
 
@@ -77,7 +77,7 @@ def _analyze(input_csv: Path, retrain: bool) -> tuple[str, pd.DataFrame, str, st
         model_path=DEFAULT_MODEL,
         output_csv=output_csv,
         output_json=output_json,
-        grader_name="rule",
+        grader_name=grader_name,
     )
     frame = pd.DataFrame([flatten_result(result) for result in results])
     _write_excel_report(frame, output_xlsx)
@@ -109,15 +109,15 @@ def _analyze(input_csv: Path, retrain: bool) -> tuple[str, pd.DataFrame, str, st
     return summary, frame[display_columns], str(output_csv), str(output_json), str(output_xlsx)
 
 
-def analyze_uploaded_file(file_value: Any, retrain: bool) -> tuple[str, pd.DataFrame, str, str, str]:
+def analyze_uploaded_file(file_value: Any, retrain: bool, grader_name: str) -> tuple[str, pd.DataFrame, str, str, str]:
     input_csv = _file_path(file_value)
     if input_csv is None:
         raise gr.Error("请上传字段 CSV 文件，或使用示例数据。")
-    return _analyze(input_csv, retrain)
+    return _analyze(input_csv, retrain, grader_name)
 
 
-def analyze_demo_file(retrain: bool) -> tuple[str, pd.DataFrame, str, str, str]:
-    return _analyze(DEFAULT_DEMO, retrain)
+def analyze_demo_file(retrain: bool, grader_name: str) -> tuple[str, pd.DataFrame, str, str, str]:
+    return _analyze(DEFAULT_DEMO, retrain, grader_name)
 
 
 def load_demo_preview() -> pd.DataFrame:
@@ -139,6 +139,11 @@ def build_app() -> gr.Blocks:
                     type="filepath",
                 )
                 retrain = gr.Checkbox(label="运行前重新训练模型", value=False)
+                grader_name = gr.Radio(
+                    label="分级方式",
+                    choices=["rule", "llm"],
+                    value="rule",
+                )
                 with gr.Row():
                     analyze_upload_button = gr.Button("分析上传文件", variant="primary")
                     analyze_demo_button = gr.Button("分析示例数据")
@@ -163,12 +168,12 @@ def build_app() -> gr.Blocks:
 
         analyze_upload_button.click(
             fn=analyze_uploaded_file,
-            inputs=[file_input, retrain],
+            inputs=[file_input, retrain, grader_name],
             outputs=[summary, result_table, csv_output, json_output, xlsx_output],
         )
         analyze_demo_button.click(
             fn=analyze_demo_file,
-            inputs=[retrain],
+            inputs=[retrain, grader_name],
             outputs=[summary, result_table, csv_output, json_output, xlsx_output],
         )
 
