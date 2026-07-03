@@ -99,6 +99,11 @@ class GradingResult:
     controls: list[str]
     requires_review: bool
     source: str = "rule"
+    risk_tags: list[str] = field(default_factory=list)
+    matched_rules: list[str] = field(default_factory=list)
+    legal_basis: list[str] = field(default_factory=list)
+    rule_category_level1: str = ""
+    rule_category_level2: str = ""
 
 
 @dataclass(frozen=True)

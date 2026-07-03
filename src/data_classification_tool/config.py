@@ -13,6 +13,6 @@ REPORT_DIR = PROJECT_ROOT / "reports"
 DEFAULT_BAYES_MODEL_PATH = MODEL_DIR / "data_field_bayes.joblib"
 DEFAULT_FIELD_TRAINING_JSON = DATA_DIR / "sample_train_data.json"
 DEFAULT_FIELD_PREDICT_JSON = DATA_DIR / "sample_predict_data.json"
+DEFAULT_RISK_RULE_CSV = DATA_DIR / "risk_rule_catalog.csv"
 DEFAULT_REVIEW_THRESHOLD = 0.6
 DEFAULT_TOP_K = 3
-

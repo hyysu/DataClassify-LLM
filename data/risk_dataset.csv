@@ -1,0 +1,40 @@
+record_id,domain,table_name,table_comment,column_name,column_comment,data_type,sample_profile,regex_features,category_level1,category_level2,risk_tags,suggested_level,legal_basis,rule_ids,controls,need_manual_review
+RISK-PI-001,personal,user_profile,用户资料表,real_name,真实姓名,varchar,中文姓名长度2到4,,个人信息,个人基本信息,personal_info,L3,个人信息保护法|GB/T 35273-2020,PI-BASIC-001,访问控制|脱敏展示,false
+RISK-PI-002,personal,user_contact,用户联系方式,mobile_phone,手机号,varchar,11位手机号,mobile_phone,个人信息,个人联系方式,personal_info,L3,个人信息保护法|GB/T 35273-2020,PI-CONTACT-001,脱敏展示|访问控制,false
+RISK-PI-003,personal,user_contact,用户联系方式,email,邮箱,varchar,邮箱格式,email,个人信息,个人联系方式,personal_info,L3,个人信息保护法|GB/T 35273-2020,PI-CONTACT-002,访问控制|反钓鱼监测,false
+RISK-PI-004,personal,user_address,用户地址,home_address,家庭住址,varchar,包含省市区街道,,个人信息,个人联系方式,personal_info,L3,个人信息保护法|GB/T 35273-2020,PI-CONTACT-003,脱敏展示|最小必要,false
+RISK-PI-005,personal,user_auth,实名认证,id_card_no,身份证号码,varchar,18位证件号码,looks_like_id_number,敏感个人信息,个人身份信息,sensitive_personal_info,L4,个人信息保护法|GB/T 35273-2020,PI-SPI-001,加密存储|脱敏展示|访问审批,false
+RISK-PI-006,personal,user_auth,实名认证,passport_no,护照号码,varchar,证件号码格式,,敏感个人信息,个人身份信息,sensitive_personal_info,L4,个人信息保护法|GB/T 35273-2020,PI-SPI-002,加密存储|访问审批,false
+RISK-PI-007,personal,payment_account,支付账户,bank_card_no,银行卡号,varchar,银行卡号格式,bank_card,敏感个人信息,个人财产信息,sensitive_personal_info,L4,个人信息保护法|GB/T 35273-2020,PI-SPI-003,加密存储|掩码展示,false
+RISK-PI-008,personal,health_record,健康档案,diagnosis_result,诊断结果,text,医疗诊断文本,medical,敏感个人信息,个人健康生理信息,sensitive_personal_info,L4,个人信息保护法|GB/T 35273-2020,PI-SPI-005,专人授权|访问审计,false
+RISK-PI-009,personal,biometric_auth,生物识别认证,face_template,人脸特征模板,binary,生物识别模板,,敏感个人信息,个人生物识别信息,sensitive_personal_info,L4,个人信息保护法|GB/T 35273-2020,PI-SPI-006,模板化处理|严格授权,false
+RISK-PI-010,personal,location_track,位置轨迹,gps_location,GPS定位,varchar,经纬度格式,gps,敏感个人信息,个人行踪轨迹,sensitive_personal_info,L4,个人信息保护法|GB/T 35273-2020,PI-SPI-007,模糊化处理|访问审批,false
+RISK-SYS-001,system,login_log,登录日志,remote_ip,登录来源IP,varchar,IPv4格式,ip_address,系统运行与安全数据,访问日志,system_operation_data,L3,网络安全法|GB/T 22239-2019,SYS-LOG-001,日志留存|访问控制,false
+RISK-SYS-002,system,system_log,系统日志,error_stack,错误堆栈,text,异常堆栈文本,,系统运行与安全数据,系统日志,system_operation_data,L3,网络安全法|GB/T 22239-2019,SYS-LOG-002,敏感字段脱敏|访问控制,false
+RISK-SYS-003,system,iam_role,权限配置,permission_code,权限编码,varchar,权限字符串,,系统运行与安全数据,账号权限,system_operation_data,L3,网络安全法|GB/T 22239-2019,SYS-AUTH-001,最小权限|权限复核,false
+RISK-SYS-004,system,api_client,开放平台,client_secret,第三方应用密钥,varchar,密钥样式,looks_like_secret,系统运行与安全数据,密钥令牌,credential_or_secret,L4,网络安全法|GB/T 22239-2019,SYS-SECRET-001,密钥托管|定期轮换,false
+RISK-SYS-005,system,security_alert,安全告警,cve_id,漏洞编号,varchar,CVE编号,,系统运行与安全数据,漏洞告警,system_security_risk,L4,网络安全法|GB/T 22239-2019,SYS-VULN-001,应急处置|漏洞修复,true
+RISK-BIZ-001,business,orders,订单表,order_no,订单号,varchar,订单编号,,业务交易信息,订单信息,business_transaction_data,L3,数据安全法|GB/T 43697-2024,BIZ-ORDER-001,访问控制|导出审批,false
+RISK-BIZ-002,business,orders,订单表,total_amount,订单总金额,decimal,金额格式,amount,业务交易信息,支付结算信息,business_transaction_data,L3,数据安全法|GB/T 43697-2024,BIZ-TRADE-001,报表脱敏|异常监测,false
+RISK-BIZ-003,business,invoice,发票表,taxpayer_no,纳税人识别号,varchar,税号格式,,业务交易信息,发票信息,business_transaction_data,L3,数据安全法|GB/T 43697-2024,BIZ-INVOICE-001,留痕审计|导出审批,false
+RISK-BIZ-004,business,delivery,物流配送,tracking_no,运单号,varchar,物流单号,,业务交易信息,物流履约信息,business_transaction_data,L3,数据安全法|GB/T 43697-2024,BIZ-LOGISTICS-001,脱敏展示|访问控制,false
+RISK-ORG-001,business,crm,客户管理,customer_list,重点客户名单,text,客户名称列表,,组织经营信息,客户信息,trade_secret_candidate,L3,数据安全法|GB/T 43697-2024,ORG-CUSTOMER-001,分级授权|水印导出,false
+RISK-ORG-002,business,contract,合同管理,contract_terms,商务条款,text,合同条款文本,,组织经营信息,合同信息,trade_secret_candidate,L3,数据安全法|GB/T 43697-2024,ORG-CONTRACT-001,审批导出|版本留痕,false
+RISK-ORG-003,business,pricing,价格策略,discount_policy,折扣策略,text,价格策略文本,,组织经营信息,报价信息,trade_secret_candidate,L3,数据安全法|GB/T 43697-2024,ORG-PRICE-001,访问审计|水印导出,false
+RISK-AI-001,ai,llm_training,模型训练,training_corpus,训练语料,text,语料摘要,,人工智能安全数据,训练数据,ai_safety_risk,L3,生成式人工智能服务管理暂行办法|数据安全法,AI-TRAIN-001,来源审查|去标识化,false
+RISK-AI-002,ai,llm_labeling,模型标注,preference_label,偏好标注,varchar,评分标签,,人工智能安全数据,标注数据,ai_safety_risk,L3,生成式人工智能服务管理暂行办法,AI-LABEL-001,质量抽检|版本留痕,false
+RISK-AI-003,ai,llm_prompt,提示词日志,system_prompt,系统提示词,text,提示词模板,,人工智能安全数据,提示词数据,ai_safety_risk,L3,生成式人工智能服务管理暂行办法,AI-PROMPT-001,日志脱敏|访问控制,false
+RISK-AI-004,ai,llm_output,模型输出,model_response,模型回答,text,输出文本,,人工智能安全数据,模型输出,ai_safety_risk,L3,生成式人工智能服务管理暂行办法,AI-OUTPUT-001,内容审核|风险拦截,false
+RISK-AI-005,ai,ai_incident,AI风险事件,risk_event_detail,风险事件详情,text,事件摘要,,人工智能安全数据,AI风险事件记录,ai_safety_risk,L4,生成式人工智能服务管理暂行办法|数据安全法,AI-RISK-001,保存日志|人工复核,true
+RISK-AI-006,ai,ai_incident,AI风险事件,privacy_leak_summary,隐私泄露摘要,text,泄露摘要,,人工智能安全数据,AI个人信息泄露风险,ai_safety_risk|personal_info,L4,生成式人工智能服务管理暂行办法|个人信息保护法,AI-PRIVACY-001,停止输出|保存证据,true
+RISK-SC-001,supply_chain,supplier_master,供应商主数据,supplier_name,供应商名称,varchar,企业名称,,供应链数据,供应商名录,supply_chain_risk,L3,数据安全法|工业和信息化领域数据安全管理办法（试行）,SC-SUPPLIER-001,供应商权限隔离,false
+RISK-SC-002,supply_chain,purchase_order,采购订单,purchase_price,采购单价,decimal,价格格式,amount,供应链数据,采购价格,supply_chain_risk|trade_secret_candidate,L3,数据安全法|工业和信息化领域数据安全管理办法（试行）,SC-PRICE-001,水印导出|访问审计,false
+RISK-SC-003,supply_chain,warehouse_stock,仓储库存,current_stock,当前库存,int,库存数量,,供应链数据,库存数据,supply_chain_risk,L3,数据安全法|工业和信息化领域数据安全管理办法（试行）,SC-STOCK-001,异常导出监测,false
+RISK-SC-004,supply_chain,key_parts,关键物料,key_component_stock,关键零部件库存,int,库存数量,,供应链数据,关键零部件,supply_chain_risk|important_data_candidate,L4,数据安全法|工业和信息化领域数据安全管理办法（试行）,SC-KEY-001,人工复核|访问审批,true
+RISK-SC-005,supply_chain,supply_risk,供应风险,supply_interrupt_warning,供应中断预警,text,预警文本,,供应链数据,供应中断风险,supply_chain_risk|important_data_candidate,L4,数据安全法|工业和信息化领域数据安全管理办法（试行）,SC-RISK-001,应急预案|限制扩散,true
+RISK-CARBON-001,carbon,carbon_report,碳排放报告,carbon_emission_amount,企业碳排放量,decimal,排放量数值,,碳排放与环境数据,企业排放量,carbon_data_risk,L3,碳排放权交易管理暂行条例|数据安全法,CARBON-EMISSION-001,完整性校验|留痕审计,false
+RISK-CARBON-002,carbon,energy_meter,能源计量,electricity_usage,电力消耗,decimal,能耗数值,,碳排放与环境数据,能源消耗,carbon_data_risk,L3,碳排放权交易管理暂行条例,CARBON-ENERGY-001,数据留痕|授权访问,false
+RISK-CARBON-003,carbon,carbon_factor,碳核算参数,emission_factor,排放因子,decimal,因子数值,,碳排放与环境数据,碳核算参数,carbon_data_risk,L3,碳排放权交易管理暂行条例,CARBON-FACTOR-001,版本管理|核算复核,false
+RISK-CARBON-004,carbon,carbon_trade,碳交易,carbon_quota_trade,碳配额交易记录,decimal,交易记录,,碳排放与环境数据,碳配额交易,carbon_data_risk|trade_secret_candidate,L3,碳排放权交易管理暂行条例,CARBON-TRADE-001,交易留痕|访问审计,false
+RISK-CARBON-005,carbon,carbon_verify,碳核查,verification_report,核查报告,text,报告摘要,,碳排放与环境数据,核查报告,carbon_data_risk,L3,碳排放权交易管理暂行条例,CARBON-VERIFY-001,版本管理|授权访问,false
+RISK-PUBLIC-001,public,notice,公告表,public_title,公开公告标题,varchar,公开文本,,公共或普通业务数据,公开信息,public_data,L1,GB/T 43697-2024,PUBLIC-001,内容审核|版本管理,false

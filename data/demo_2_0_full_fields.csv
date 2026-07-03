@@ -1,0 +1,14 @@
+table_name,column_name,column_comment,data_type,sample_value,business_context
+user_profile,mobile_phone,用户手机号,varchar,138****1111,用户管理
+user_auth,id_card_no,身份证号码,varchar,110101********9876,实名认证
+payment_account,bank_card_no,银行卡号,varchar,6222********1234,支付账户
+location_track,gps_location,GPS定位,varchar,"lat=39.9 lng=116.3",位置服务
+api_client,client_secret,第三方应用密钥,varchar,sec_***,开放平台
+login_log,remote_ip,登录来源IP,varchar,203.0.113.8,登录日志
+orders,total_amount,订单总金额,decimal,299.90,电商订单
+crm,customer_list,重点客户名单,text,客户A 客户B,销售管理
+llm_prompt,system_prompt,系统提示词,text,你是客服助手,人工智能服务
+ai_incident,risk_event_detail,AI风险事件详情,text,疑似违法输出,人工智能安全
+supply_risk,supply_interrupt_warning,供应中断预警,text,关键物料交付延迟,供应链管理
+carbon_report,carbon_emission_amount,企业碳排放量,decimal,10240.50,碳排放核算
+notice,public_title,公开公告标题,varchar,停机维护公告,门户网站

@@ -94,6 +94,21 @@ python scripts/analyze_demo.py
 python scripts/evaluate_model.py
 ```
 
+运行 2.0 规则库 demo：
+
+```powershell
+$env:PYTHONPATH="src"
+python -m data_classification_tool analyze --input data/demo_2_0_full_fields.csv --auto-train --grader rule --output-csv reports/demo_2_0_rule_report.csv --output-json reports/demo_2_0_rule_report.json
+```
+
+2.0 demo 会额外输出风险标签、命中规则和依据文件，例如：
+
+```text
+risk_tags
+matched_rules
+legal_basis
+```
+
 ## 6. 启动 Gradio 页面
 
 ```powershell

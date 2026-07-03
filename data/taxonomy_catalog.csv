@@ -1,0 +1,39 @@
+category_level1,category_level2,description,default_level,risk_tags,legal_basis,example_keywords
+个人信息,个人基本信息,姓名性别年龄出生日期等可识别自然人的基本信息,L3,personal_info,个人信息保护法|GB/T 35273-2020,name|real_name|姓名|性别|年龄|出生日期
+个人信息,个人联系方式,手机号邮箱地址电话等联系信息,L3,personal_info,个人信息保护法|GB/T 35273-2020,phone|mobile|email|address|手机号|邮箱|地址
+个人信息,个人网络身份标识,账号用户ID昵称OpenID设备标识等网络身份信息,L3,personal_info,个人信息保护法|GB/T 35273-2020,user_id|openid|nickname|device_id|账号|昵称
+个人信息,个人教育职业信息,学历职业单位职务等个人履历信息,L3,personal_info,个人信息保护法|GB/T 35273-2020,education|job|company|title|学历|职业|单位
+敏感个人信息,个人身份信息,身份证护照驾驶证社保号等身份凭证信息,L4,sensitive_personal_info,个人信息保护法|GB/T 35273-2020,id_card|passport|identity|身份证|护照|证件
+敏感个人信息,个人生物识别信息,人脸指纹声纹虹膜DNA等生物识别信息,L4,sensitive_personal_info,个人信息保护法|GB/T 35273-2020,face|fingerprint|voiceprint|iris|人脸|指纹|声纹
+敏感个人信息,个人财产信息,银行卡账户余额交易密码支付账号等财产相关信息,L4,sensitive_personal_info,个人信息保护法|GB/T 35273-2020,bank_card|account_balance|pay_account|银行卡|账户余额
+敏感个人信息,个人健康生理信息,病历诊断用药检查报告健康指标等信息,L4,sensitive_personal_info,个人信息保护法|GB/T 35273-2020,medical|diagnosis|health|病历|诊断|健康
+敏感个人信息,个人行踪轨迹,精准定位轨迹住宿出行等行踪信息,L4,sensitive_personal_info,个人信息保护法|GB/T 35273-2020,gps|location|track|定位|轨迹|经纬度
+敏感个人信息,未成年人个人信息,未满十四周岁未成年人相关个人信息,L4,sensitive_personal_info,个人信息保护法|GB/T 35273-2020,child|minor|guardian|未成年人|儿童|监护人
+组织经营信息,客户信息,客户名单客户画像客户等级客户联系人等信息,L3,trade_secret_candidate,数据安全法|GB/T 43697-2024,customer|crm|client|客户|客户名单
+组织经营信息,供应商信息,供应商名录资质信用评级联系人等信息,L3,supply_chain_risk,数据安全法|工业和信息化领域数据安全管理办法（试行）,supplier|vendor|供应商|供方
+组织经营信息,合同与报价信息,合同价格折扣报价商务条款等信息,L3,trade_secret_candidate,数据安全法|GB/T 43697-2024,contract|quote|price|合同|报价|价格
+组织经营信息,经营分析信息,经营指标利润预测销售分析战略计划等信息,L3,trade_secret_candidate,数据安全法|GB/T 43697-2024,kpi|profit|forecast|经营|利润|预测
+业务交易信息,订单信息,订单编号商品数量收货信息状态等交易过程信息,L3,business_transaction_data,数据安全法|GB/T 43697-2024,order|订单|商品|收货
+业务交易信息,支付结算信息,支付金额支付流水结算账户发票等信息,L3,business_transaction_data,数据安全法|GB/T 43697-2024,pay|payment|amount|invoice|支付|金额|发票
+业务交易信息,物流履约信息,物流轨迹配送状态仓储出库入库等信息,L3,business_transaction_data,数据安全法|GB/T 43697-2024,logistics|delivery|warehouse|物流|配送|仓储
+系统运行与安全数据,系统日志,系统运行日志错误日志审计日志等信息,L3,system_operation_data,网络安全法|GB/T 22239-2019,log|audit|error|日志|审计
+系统运行与安全数据,访问日志,IP地址访问时间请求路径设备信息等,L3,system_operation_data,网络安全法|GB/T 22239-2019,ip|access_log|remote_ip|访问日志|登录日志
+系统运行与安全数据,账号权限,账号角色权限组组织架构权限配置等,L3,system_operation_data,网络安全法|GB/T 22239-2019,role|permission|account|权限|角色|账号
+系统运行与安全数据,密钥令牌,密码密钥token证书私钥API key等,L4,credential_or_secret,网络安全法|GB/T 22239-2019,password|secret|token|api_key|密钥|令牌|口令
+人工智能安全数据,训练数据,用于模型训练的数据集语料样本特征等,L3,ai_safety_risk,生成式人工智能服务管理暂行办法|数据安全法,training|dataset|corpus|训练数据|语料
+人工智能安全数据,标注数据,人工或自动标注结果标签评分偏好数据等,L3,ai_safety_risk,生成式人工智能服务管理暂行办法,label|annotation|rating|标注|评分
+人工智能安全数据,提示词数据,用户提示词系统提示词模板和上下文信息,L3,ai_safety_risk,生成式人工智能服务管理暂行办法,prompt|instruction|提示词|系统提示
+人工智能安全数据,模型输出,模型生成内容回答摘要图片文本等输出,L3,ai_safety_risk,生成式人工智能服务管理暂行办法,completion|output|response|输出|生成内容
+人工智能安全数据,AI风险事件记录,违法有害输出隐私泄露歧视深度合成等事件记录,L4,ai_safety_risk,生成式人工智能服务管理暂行办法,risk_event|incident|deepfake|风险事件|违法输出
+供应链数据,供应商名录,供应商名称资质联系人信用评级准入状态等,L3,supply_chain_risk,数据安全法|工业和信息化领域数据安全管理办法（试行）,supplier|vendor|供应商
+供应链数据,采购价格,采购单价折扣价格策略成本信息等,L3,supply_chain_risk|trade_secret_candidate,数据安全法|工业和信息化领域数据安全管理办法（试行）,purchase_price|cost|采购价|成本
+供应链数据,库存数据,库存数量安全库存缺货预警仓库分布等,L3,supply_chain_risk,数据安全法|工业和信息化领域数据安全管理办法（试行）,stock|inventory|库存
+供应链数据,关键零部件,关键物料关键零部件替代料供应状态等,L4,supply_chain_risk|important_data_candidate,数据安全法|工业和信息化领域数据安全管理办法（试行）,key_component|关键零部件|关键物料
+供应链数据,供应中断风险,断供预警交付延迟产能不足运输阻断等,L4,supply_chain_risk|important_data_candidate,数据安全法|工业和信息化领域数据安全管理办法（试行）,supply_risk|delay|shortage|断供|延迟
+碳排放与环境数据,企业排放量,重点排放单位排放量年度排放月度排放等,L3,carbon_data_risk,碳排放权交易管理暂行条例|数据安全法,emission|carbon_emission|排放量|碳排放
+碳排放与环境数据,能源消耗,电力燃气煤炭蒸汽等能源消耗数据,L3,carbon_data_risk,碳排放权交易管理暂行条例,energy|power|fuel|能耗|电力|燃气
+碳排放与环境数据,碳核算参数,排放因子活动水平核算边界计算参数等,L3,carbon_data_risk,碳排放权交易管理暂行条例,emission_factor|activity_data|排放因子|活动水平
+碳排放与环境数据,碳配额交易,配额持仓交易价格成交量清缴履约等,L3,carbon_data_risk|trade_secret_candidate,碳排放权交易管理暂行条例,quota|carbon_trade|allowance|碳配额|碳交易
+碳排放与环境数据,核查报告,第三方核查报告核查结论整改记录等,L3,carbon_data_risk,碳排放权交易管理暂行条例,verification|audit_report|核查报告
+公共或普通业务数据,公开信息,公开公告新闻公开产品说明帮助文档等,L1,public_data,GB/T 43697-2024,public|notice|announcement|公开|公告
+其他,待复核数据,无法根据现有规则明确分类或存在冲突的数据,L2,need_manual_review,GB/T 43697-2024,unknown|other|其他|未知

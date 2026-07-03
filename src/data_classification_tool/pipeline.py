@@ -6,7 +6,7 @@ from pathlib import Path
 
 from data_classification_tool.catalog import load_label_catalog
 from data_classification_tool.classifier import BayesianFieldClassifier
-from data_classification_tool.grader import LLMGrader, RuleBasedGrader
+from data_classification_tool.grader import LLMGrader, RuleBasedGrader, merge_grading_results
 from data_classification_tool.io import read_field_records, write_results_csv, write_results_json
 from data_classification_tool.models import AnalysisResult
 
@@ -34,17 +34,20 @@ def analyze_fields(
     classifier = BayesianFieldClassifier.load(model_path)
     records, _ = read_field_records(input_csv, require_label=False)
 
-    if grader_name == "rule":
-        grader = RuleBasedGrader(catalog)
-    elif grader_name == "llm":
-        grader = LLMGrader()
-    else:
+    rule_grader = RuleBasedGrader(catalog)
+    llm_grader = LLMGrader() if grader_name == "llm" else None
+    if grader_name not in {"rule", "llm"}:
         raise ValueError(f"Unsupported grader: {grader_name}")
 
     results: list[AnalysisResult] = []
     for record in records:
         classification = classifier.predict_one(record, catalog)
-        grading = grader.grade(record, classification)
+        rule_grading = rule_grader.grade(record, classification)
+        if llm_grader:
+            llm_grading = llm_grader.grade(record, classification)
+            grading = merge_grading_results(rule_grading, llm_grading)
+        else:
+            grading = rule_grading
         results.append(AnalysisResult(field=record, classification=classification, grading=grading))
 
     if output_csv:
@@ -53,4 +56,3 @@ def analyze_fields(
         write_results_json(results, output_json)
 
     return results
-
